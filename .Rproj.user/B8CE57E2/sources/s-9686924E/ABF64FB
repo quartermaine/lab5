@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538474585329.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "ABF64FB",
+    "lastKnownWriteTime" : 1538478682,
+    "last_content_update" : 1538478682,
+    "path" : "~/Advance_R_Programming/lab5/R/ny_times_api.R",
+    "project_path" : "R/ny_times_api.R",
+    "properties" : {
+        "cursorPosition" : "28,0",
+        "scrollLine" : "8",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

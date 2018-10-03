@@ -1,0 +1,61 @@
+#' @title Coordinates finder
+#'
+#' @description The 'geocode_func' function is a class that converts an address to coordinates.
+#'
+#' @param data A data frame of character string addreses
+#'
+#' @return A single coordinate or a dataframe cointaining full address names as well as the coordinates
+#'
+#' @import methods
+#' @importFrom httr content GET
+#' @importFrom rjson fromJSON
+#'
+#' @examples
+#' e <- geocode_func()
+#' e$getCoordinates( "Mobile, Alabama, United States")
+#'
+#' e$getCorrdinates(addresses)
+#'
+#' @export
+#' @exportClass geocode_func
+
+geocode_func <- setRefClass("geocode_func",
+                            fields = list(
+                              f="data.frame"
+                            ),
+                            methods = list(
+                              initialize = function(){
+                                cat("User::initialize")
+                                f<<- data.frame()
+                              },
+                              getCoordinates = function(data){
+                                if (is.character(data)){
+                                  data <- as.data.frame(data)
+                                }
+                                if(data=="" | grepl("[][!#$%()*.:;<=>@^_`|~.{}]", data[,1])==TRUE){
+                                  stop("Please check again your input")
+                                }
+                                a<-vector("character")
+                                b<-vector("numeric")
+                                d<-vector("numeric")
+                                for(i in 1:nrow(data)){
+                                  print("Processing")
+                                  url<- "http://www.datasciencetoolkit.org/maps/api/geocode/json"
+                                  json <-rjson::fromJSON(httr::content(httr::GET(url,query=list(sensor="FALSE",address=as.character(data[i,1]))),type="text"))
+                                  if (json$status=="OK"){
+                                    loc <- json$results[[1]]$geometry$location
+                                    a[i]<-as.character(data[i,1])
+                                    b[i]<-loc$lng
+                                    d[i]<-loc$lat
+                                  }else{
+                                    a[i]<-as.character(data[i,1])
+                                    b[i]<-NA
+                                    d[i]<-NA
+                                  }
+                                }
+                                f<<-data.frame(a,b,d)
+                                names(f) <<- c("Address","Longtitude","Latitude")
+                                return(f)
+                              }
+                              )
+                            )

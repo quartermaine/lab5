@@ -1,0 +1,39 @@
+---
+title: "Lab5"
+author: "Andreas C Quartermaine"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The lab5 package is connected with the datascience toolkit API to convert location and coordination by two function:
+  
+  
+- geocode_func
+- rgeocode_func
+
+**package httr and json is required to be installed** 
+  
+###Functions
+####geocode_func
+  
+The 'geocode_func'class retrive the coordinates of a given address.The funtion uses the datascience toolkit API to retrieve the result.
+
+For a single address we use the single_adr method that takes as input a character string and returns a data frame with the address
+and the requested coordinates.
+
+For multiple addresses we use the mult_adr method that as input requires a data frame of addresses and returns a data frame of the addresses and the requested coordinates.
+
+
+
+
