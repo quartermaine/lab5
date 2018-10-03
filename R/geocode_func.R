@@ -9,7 +9,7 @@
 #' @importFrom rjson fromJSON
 #'
 #' @export geocode_func
-#' @exportClass geocode_fun
+#' @exportClass geocode_func
 
 geocode_func <- setRefClass("geocode_func",fields = list(f="data.frame"),
                             methods = list(
