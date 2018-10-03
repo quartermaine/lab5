@@ -4,7 +4,7 @@ Title: Package for geocoding and reverse geocoding
 Version: 0.1.0
 Author: Andreas C.Charitos
 Maintainer: The package maintainer <andch552@liu.se>
-Description: The package provides two classes.The geocode_func takes as input an address or multiple addresses in data frame format
+Description: The package provides two methods.The geocode_func takes as input an address or multiple addresses in data frame format
               and returns the logtitude and latitude for the request address or adresses.The regeocode_func does the reverse of 
               geocode_func and takes as input a latitude and longtitude or dataframe of coordinates and returns the address or addresses.
               We use datascience toolkit to extract coordiantes.

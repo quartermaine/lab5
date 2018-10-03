@@ -5,20 +5,13 @@
 \alias{geocode_func-class}
 \alias{geocode_func}
 \title{Coordinates finder}
-\arguments{
-\item{data}{A data frame of character string addreses}
-}
-\value{
-A single coordinate or a dataframe cointaining full address names as well as the coordinates
-}
 \description{
 The 'geocode_func' function is a class that converts an address to coordinates.
 }
+\section{Fields}{
 
-\examples{
-e <- geocode_func()
-e$getCoordinates( "Mobile, Alabama, United States")
+\describe{
+\item{\code{F}}{A data frame}
+}}
 
-e$getCorrdinates(addresses)
 
-}
